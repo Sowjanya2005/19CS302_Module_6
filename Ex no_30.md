@@ -22,30 +22,43 @@ RegisterNumber: 212222060250
 */
 #include <stdio.h>
 #include <stdlib.h>
-int main() {
- int *arr, size, i;
- size = 3;
- arr = (int *)malloc(size * sizeof(int)); 
- for (i = 0; i < size; i++) {
- arr[i] = i * 10; }
- printf("Original array:\n");
- for (i = 0; i < size; i++) {
- printf("%d ", arr[i]);
- }
- printf("\n");
- size *= 2;
- arr = (int *)realloc(arr, size * sizeof(int)); 
- for (i = size / 2; i < size; i++) {
- arr[i] = i * 10;
-printf("Updated array:\n");
- for (i = 0; i < size; i++) {
- printf("%d ", arr[i]);
- }}
+
+int main()
+{
+    int *arr, i;
+
+    arr = (int*)malloc(3 * sizeof(int));
+
+    printf("Enter 3 integers:\n");
+    for(i = 0; i < 3; i++)
+    {
+        scanf("%d", &arr[i]);
+    }
+
+    arr = (int*)realloc(arr, 4 * sizeof(int));
+
+    printf("Enter the 4th integer:\n");
+    scanf("%d", &arr[3]);
+
+    int sum = 0;
+    for(i = 0; i < 4; i++)
+    {
+        sum += arr[i];
+    }
+
+    printf("The sum of the array elements is: %d\n", sum);
+
+    free(arr);
+
+    return 0;
+}
 ```
 
 ## Output:
 
-![image](https://github.com/user-attachments/assets/93f656ca-fc92-4131-8081-a7dfaaadb787)
+![image](https://github.com/user-attachments/assets/2f889270-9e5d-469a-91e8-8c9ba4e4f3ba)
+
+
 
 ## Result:
 Thus the program was executed and the output was verified successfully.
